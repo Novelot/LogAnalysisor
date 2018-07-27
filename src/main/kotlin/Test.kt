@@ -7,7 +7,7 @@ fun main(args: Array<String>) {
 
     println("--- 日志分析器 ---")
 
-    var logFilePath = "/Users/v/Desktop/奇瑞anr"              //Constant.ANR_FILE_PATH
+    var logFilePath = "/Users/v/Desktop/log样例/换台.txt"              //Constant.ANR_FILE_PATH
     var desDirPath = "/Users/v/Desktop/log-analysisor/"         //"/sdcard/log-analysisor/"
 
     LogAnalysisor()

@@ -39,7 +39,6 @@ class LogAnalysisor {
                         //intercept
                         if (rule.conform(line)) {
                             mPriorityRule = rule;
-                            break;
                         }
                     }
                 }

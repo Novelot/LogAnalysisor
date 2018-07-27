@@ -1,35 +1,30 @@
-group = "novelot"
-version = "1.0"
+buildscript {
+    ext.kotlin_version = '1.2.51'
 
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
 
-apply plugin: 'application'
+group 'novelot'
+version '1.0-SNAPSHOT'
 
-mainClassName='Test'
+apply plugin: 'kotlin'
 
 repositories {
     mavenCentral()
 }
 
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+}
 
-
-//task makeJar(dependsOn: ['compileReleaseJavaWithJavac'], type: Jar) {
-//    delete 'build/libs/kotlin_and_java.jar' //生成的jar存放路径
-//    appendix = "demo"
-//    baseName = "androidJar"
-//    version = "1.0.0"
-//    classifier = "release"
-//    //后缀名
-//    extension = "jar"
-//    //最终的 Jar 包名，如果没设置，默认为 [baseName]-[appendix]-[version]-[classifier].[extension]
-//    archiveName = "kotlin_and_java.jar"
-//    //需打包的资源所在的路径集
-//    def srcClassesDir1 = [project.buildDir.absolutePath + "/tmp/kotlin-classes/release"] //Kotlin 生成的classes文件路径
-//    def srcClassesDir2 = [project.buildDir.absolutePath + "/intermediates/classes/release"] //Java 生成的classes文件路径
-//    //初始化资源路径集
-//    from srcClassesDir1, srcClassesDir2
-//    //去除路径集下部分的资源
-//    exclude "**/R.class"
-//    exclude "**/R\$*.class"
-//    //只导入资源路径集下的部分资源
-//    include "com/turbo/testapplication/**/*.class"
-//}
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
